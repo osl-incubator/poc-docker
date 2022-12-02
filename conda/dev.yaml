@@ -1,0 +1,6 @@
+name: pocdocker
+channels:
+  - nodefaults
+  - conda-forge
+dependencies:
+  - python
