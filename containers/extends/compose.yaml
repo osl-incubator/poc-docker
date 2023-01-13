@@ -1,0 +1,22 @@
+version: '3.8'
+
+services:
+  service-base:
+    # image:  python:3.9
+    build:
+      context: .
+      dockerfile: Dockerfile
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000"]
+      interval: 60s
+      timeout: 10s
+      retries: 5
+      start_period: 40s
+
+  service-ftp:
+    hostname: service-ftp
+    extends:
+      service: service-base
+    ports:
+      - 8000:8000
+    command: python -m http.server

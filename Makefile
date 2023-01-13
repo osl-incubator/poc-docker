@@ -1,15 +1,16 @@
-SERVICES:=pocdocker
-SERVICE:=pocdocker
+SERVICES:=
+SERVICE:=
 CONSOLE:=bash
 CMD:=
 ARGS:=
 TIMEOUT:=90
+PROJECT:=
 
 # https://github.com/containers/podman-compose/issues/491#issuecomment-1289944841
 CONTAINER_APP=docker-compose \
 	--env-file=.env \
 	--project-name pocdocker \
-	--file containers/compose.yaml
+	--file containers/${PROJECT}/compose.yaml
 
 
 # CONTAINER_APP
